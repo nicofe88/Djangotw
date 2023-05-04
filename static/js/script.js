@@ -35,3 +35,22 @@ let countChar = () => {
 }
 
 textArea.addEventListener('input', countChar);
+
+
+
+function validateForm() {
+    let x = document.forms["valForm"]["{{ form.username }}"].value;
+    let y = document.forms["valForm"]["{{ form.password }}"].value;
+
+    if (x == "") {
+        alert("Por favor, complete el campo Username");
+        return false;
+    }
+    if (y == "") {
+        alert("Por favor, complete el campo Password");
+        return false;
+    }
+
+    alert("Muchas gracias. Nos contactaremos a la brevedad.");
+
+}
