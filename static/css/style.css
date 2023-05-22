@@ -1,5 +1,5 @@
 body {
-  background: #E6E8E9; /*15202b*/;
+  background: #e9e8e6; /*15202b*/;
   font-family: 'Asap', sans-serif;
   font-family: 'Roboto', sans-serif;
 }
@@ -9,7 +9,7 @@ img {
 }
 
 .navbar {
-  background-color: #1E96EB /*#E0245E*/;
+  background-color: #eb621e /*#E0245E*/;
 }
 
 .navbar-brand {
@@ -27,7 +27,7 @@ img {
 }
 
 .card-header {
-  background-color: #1E96EB /*#E0245E*/;
+  background-color: #eb3d1e /*#E0245E*/;
   color: white;
   text-align: center;
   font-weight: bold;
@@ -133,14 +133,14 @@ img {
 }
 
 .btn {
-  background-color: #1E96EB /*E0245E*/ ;
+  background-color: #eb771e /*E0245E*/ ;
   border-style: none;
   font-weight: bold;
   color: white;
 }
 
 #charBadge {
-  background-color: #1E96EB /*E0245E*/;
+  background-color: #eb4e1e /*E0245E*/;
   position: relative;
   left: -8px;
   font-size: 1rem;
