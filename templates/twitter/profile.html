@@ -100,11 +100,13 @@
                         </div>
 
                         <!-- DELETE -->
+                        {% if request.user == post.user %}
                         <div class="trash">
                             <a href="#" style="background: white; border: none;">
                                 <i class="fa fa-trash-o" style="color:#657786; font-size: 20px" aria-hidden="true"></i>
                             </a>
                         </div>
+                        {% endif %}
                         <!-- END-DELETE -->
                     </div>
                 </div>
