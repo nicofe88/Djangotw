@@ -16,12 +16,12 @@
 
                         <p class="card-text">{{ user.profile.bio }}</p>
                         <h6 class="card-title font-weight-bold">
-                        {{ user.profile.followers.count }} Followers   
-                        {{ user.profile.following.count }} Following
+                        {{ user.profile.getFollowers.count }} Followers   
+                        {{ user.profile.getFollowing.count }} Following
                         </h6>
                         {% if request.user.is_authenticated %}
                             {% if user.username != request.user.username %}
-                                {% if user not in request.user.profile.following %}
+                                {% if user not in request.user.profile.getFollowing %}
                                 <a href="{% url 'follow' user %}" class="btn  text-white rounded-pill">Seguir</a>
                                 {% else %}
                                 <a href="{% url 'unfollow' user %}" class="btn  text-white rounded-pill">Dejar de seguir</a>
@@ -100,11 +100,13 @@
                         </div>
 
                         <!-- DELETE -->
+                        {% if request.user == post.user %}
                         <div class="trash">
                             <a href="#" style="background: white; border: none;">
                                 <i class="fa fa-trash-o" style="color:#657786; font-size: 20px" aria-hidden="true"></i>
                             </a>
                         </div>
+                        {% endif %}
                         <!-- END-DELETE -->
                     </div>
                 </div>

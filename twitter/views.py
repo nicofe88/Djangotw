@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Profile, Post, Relationship
+from .models import Post
 from .forms import UserRegisterForm, PostForm, ProfileUpdateForm, UserUpdateForm
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -62,24 +61,17 @@ def editar(request):
 	context = {'u_form' : u_form, 'p_form' : p_form}
 	return render(request, 'twitter/editar.html', context)
 
-
 def follow(request, username):
-	current_user = request.user
-	to_user = User.objects.get(username=username)
-	to_user_id = to_user
-	rel = Relationship(from_user=current_user, to_user=to_user_id)
-	rel.save()
+	current_profile = request.user.profile
+	to_profile = User.objects.get(username=username).profile
+	current_profile.following.add(to_profile)
 	return redirect('home')
-
 
 def unfollow(request, username):
-	current_user = request.user
-	to_user = User.objects.get(username=username)
-	to_user_id = to_user.id
-	rel = Relationship.objects.get(from_user=current_user.id, to_user=to_user_id)
-	rel.delete()
+	current_profile = request.user.profile
+	to_profile = User.objects.get(username=username).profile
+	current_profile.following.remove(to_profile)
 	return redirect('home')
-
 
 
 
