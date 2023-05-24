@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'adminis',
 ]
 
 MIDDLEWARE = [
@@ -83,11 +84,11 @@ WSGI_APPLICATION = 'social_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
+        'NAME': env("DATABASE_NAME"),
+        'USER': env("DATABASE_USER"),
+        'PASSWORD': env("DATABASE_PASSWORD"),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env("DATABASE_PORT"),
     }
 }
 
@@ -134,8 +135,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-
-
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
 
@@ -145,3 +144,17 @@ MEDIA_URL = '/media/'
 
 
 LOGIN_URL = 'login'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+
+
+
+
+
+
+
+
+
+
+
