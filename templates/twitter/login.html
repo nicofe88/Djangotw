@@ -10,7 +10,7 @@
             <h1>Inicia Sesión</h1>
         </header>
 
-        <form method="post" name="valForm">
+        <form method="post">
             {% csrf_token %}
             <div class="input-wrapper">
                 <label for="user-name-id">Username</label>
@@ -21,9 +21,11 @@
                 <label for="password-id">Password</label>
                 {{ form.password }}
             </div>
-            {% if form.errors %}
-            <p>Username or password not correct.</p>
-            {% endif %}
+
+            <script>
+                if ('form.username' || 'form.password')
+                    alert("Por favor, revise los campos");
+            </script>
 
             <button class="twitter-btn">Log in</button>
         </form>
@@ -32,6 +34,6 @@
             <a href="#">Forget Password</a> .
             <a href="#">Sign up to twitter</a>
         </div>
-
     </div>
+
     {% endblock content %}
