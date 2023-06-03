@@ -1,0 +1,69 @@
+[33mcommit a1a8b6da50c44fbbd0ae5374c91a1d975e6b8069[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 059874a bc5ede6
+Author: Damian L. Angelucci <damian.angelucci@hotmail.com>
+Date:   Wed May 24 19:50:59 2023 -0300
+
+    Merge branch 'main' of https://github.com/nicofe88/Djangotw
+
+[33mcommit bc5ede611bc8dc5087fc48dc901c80e383159dd3[m
+Merge: 7754966 5c12df9
+Author: Ruben Schlaen <85961518+gschlaen@users.noreply.github.com>
+Date:   Wed May 24 17:00:22 2023 -0300
+
+    Merge pull request #1 from nicofe88/rgschlaen-manyToMany
+    
+    Rgschlaen many to many
+
+[33mcommit 5c12df9d4ed56107fa626397814d55cedd2068d6[m[33m ([m[1;31morigin/rgschlaen-manyToMany[m[33m)[m
+Author: Ruben Schlaen <gschlaen@agro.uba.ar>
+Date:   Tue May 23 21:27:22 2023 -0300
+
+    Fixes: No poder borrar tweet en perfil de otro usuario, Navegación a perfil propio
+
+[33mcommit 2ff4fced017ac4e9447d52398a02cea5bb2db93f[m
+Author: Ruben Schlaen <gschlaen@agro.uba.ar>
+Date:   Tue May 23 21:17:51 2023 -0300
+
+    Cambio de follow y unfollow usando relacion manyToMany entre Profiles
+
+[33mcommit 7754966b9c9b910a627dbff1282172d5cc5293b1[m
+Author: nicofe88 <nicolasferreyra17@hotmail.com>
+Date:   Mon May 22 00:09:37 2023 -0300
+
+    administracion
+
+[33mcommit 059874a938eef0a032fa16af61ef131e2ab72b65[m
+Author: Damian L. Angelucci <damian.angelucci@hotmail.com>
+Date:   Thu May 4 17:07:25 2023 -0300
+
+    validation form with js on login.html
+
+[33mcommit 9e4976169646e8d89480c0df2798786cabe44803[m
+Author: Damian L. Angelucci <damian.angelucci@hotmail.com>
+Date:   Thu May 4 14:35:08 2023 -0300
+
+    configuración database
+
+[33mcommit cc0ebd917a8416ef60be2cda634241f93acf5682[m
+Author: nicofe88 <nicolasferreyra17@hotmail.com>
+Date:   Wed May 3 17:38:03 2023 -0300
+
+    base
+
+[33mcommit a621c4b2fed65f999358b22bbf18f9097f20e571[m
+Author: Antonio G <tonyg@Mac-2.local>
+Date:   Tue Aug 17 18:28:38 2021 -0500
+
+    Modifying readme
+
+[33mcommit 142d5728e6a234f820a6f12e3df42e7f01ff0766[m
+Author: Antonio G <tonyg@Mac-2.local>
+Date:   Tue Aug 17 18:28:02 2021 -0500
+
+    Adding readme file
+
+[33mcommit 2d5634d0c6d13cb3c66337853f2328bf3e020354[m
+Author: Antonio G <tonyg@Mac-2.local>
+Date:   Tue Aug 17 18:04:28 2021 -0500
+
+    adding final repo
