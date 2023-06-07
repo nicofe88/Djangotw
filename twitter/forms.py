@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Post, Profile
+import re
 
 class UserRegisterForm(UserCreationForm):
 
@@ -17,6 +18,12 @@ class PostForm(forms.ModelForm):
 	class Meta:
 		model = Post
 		fields = ['content']
+
+	def extrae_hashtag(self):
+		content = self.cleaned_data.get('content', '')
+		#extraigo del txtarea los comandos hashtags creados a partir del comando +#ejemplo
+		hashtags = re.findall(r'\#(\w+)', content)
+		return hashtags
 
 class UserUpdateForm(forms.ModelForm):
 	class Meta:

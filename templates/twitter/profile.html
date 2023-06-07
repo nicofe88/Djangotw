@@ -125,15 +125,23 @@
         <div class="sidebar m-5 d-none d-xl-block">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                    Who to Follow
+                    Hashtags
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><a href="#" style="text-decoration: none;color: #657787;">@mundopython</a></li>
-                    <li class="list-group-item"><a href="#" style="text-decoration: none;color: #657787;">@mundopython</a></li>
-                    <li class="list-group-item"><a href="#" style="text-decoration: none;color: #657787;">@mundopython</a></li>
+                    {% for post in posts %}
+                    {% if request.user != post.user %}
+                    <!-- Verifica si el autor del post es el usuario logueado -->
+                    {% for hashtag in post.hashtags.all %}
+                    <li class="list-group-item">
+                        <a href="{% url 'hashtags_en_posts' hashtag.id}" style="text-decoration: none;color: #657787;">
+                            #{{ hashtag.nombre_hashtag }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>
-    </div>
-
-{% endblock content %}
+    
+    {% endblock content %}
