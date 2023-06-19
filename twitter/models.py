@@ -31,6 +31,7 @@ class Post(models.Model):
 	content = models.TextField()
 	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
 	hashtags = models.ManyToManyField(Hashtag)
+	likes = models.ManyToManyField(User, related_name='likes', blank=True)
 
 	class Meta:
 		ordering = ['-timestamp']
@@ -38,7 +39,9 @@ class Post(models.Model):
 	def __str__(self):
 		return self.content
 	
-
+	def getLikeUsers(self):
+		user_ids = self.likes.values_list('id', flat=True)
+		return User.objects.filter(id__in=user_ids)
 
 
 
