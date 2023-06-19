@@ -33,4 +33,3 @@ admin.site.register(Hashtag)
 # sitio_admin=TwiterAdmin(name='tweterAdmin')
 # sitio_admin.register(Profile,ProfileAdmin)
 # sitio_admin.register(Post)
-

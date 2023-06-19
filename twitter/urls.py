@@ -17,4 +17,5 @@ urlpatterns = [
 	path('unfollow/<str:username>/', views.unfollow, name='unfollow'),
 	path('hashtags/<int:hashtag_id>/', views.hashtags_en_posts, name='hashtags_en_posts'),
     
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
