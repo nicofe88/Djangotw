@@ -13,12 +13,12 @@
         <form method="post" name="valForm">
             {% csrf_token %}
             <div class="input-wrapper">
-                <label for="user-name-id">Username</label>
+                <label for="user-name-id">Apodo</label>
                 {{ form.username }}
             </div>
 
             <div class="input-wrapper">
-                <label for="password-id">Password</label>
+                <label for="password-id">Contraseña/label>
                 {{ form.password }}
             </div>
             {% if form.errors %}
@@ -29,8 +29,8 @@
         </form>
 
         <div class="footer">
-            <a href="#">Forget Password</a> .
-            <a href="#">Sign up to twitter</a>
+            <a href="#">Olvide la contraeña</a> .
+            <a href={% url 'register' %}>Metete en El Chisme</a>
         </div>
 
     </div>

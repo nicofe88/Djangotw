@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.db.models.signals import post_save
 
 class Hashtag(models.Model):
 	nombre_hashtag = models.CharField(max_length=20, unique=True)
@@ -24,6 +25,15 @@ class Profile(models.Model):
 	def getFollowers(self):
 		user_ids = Profile.objects.filter(following=self).values_list('user', flat=True)
 		return User.objects.filter(id__in=user_ids)
+	
+	def create_user_profile(sender,instance,created, **kwargs):
+		if created:
+			Profile.objects.create(user=instance)
+
+	def save_user_profile(sender,instance, **kwargs):
+		instance.profile.save()
+	post_save.connect(create_user_profile,sender=User)
+	post_save.connect(save_user_profile, sender=User)
 
 
 class Post(models.Model):
@@ -31,12 +41,17 @@ class Post(models.Model):
 	content = models.TextField()
 	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
 	hashtags = models.ManyToManyField(Hashtag)
+	likes = models.ManyToManyField(User, related_name='likes', blank=True)
 
 	class Meta:
 		ordering = ['-timestamp']
 
 	def __str__(self):
 		return self.content
+	
+	def getLikeUsers(self):
+		user_ids = self.likes.values_list('id', flat=True)
+		return User.objects.filter(id__in=user_ids)
 	
 
 

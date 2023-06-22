@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 import re
 
 
+
 def home(request):
 	posts = Post.objects.all()
 	if request.method == 'POST':
@@ -91,6 +92,14 @@ def hashtags_en_posts(request, hashtag_id):
 	posts = Post.objects.filter(hashtags = hashtag).order_by('-fecha_publicacion')
 	context = {'hashtags': hashtags, 'posts': posts}
 	return render(request, 'twitter/hashtag_en_posts.html', context)
+
+def post_like(request, post_id):
+	post = get_object_or_404(Post, id=request.POST.get('post_id'))
+	if post.likes.filter(id=request.user.id).exists():
+		post.likes.remove(request.user)
+	else:
+		post.likes.add(request.user)
+	return redirect(request.META.get('HTTP_REFERER'))
 
 
 

@@ -5,17 +5,17 @@
     <div class="twitter-login-box">
         <header>
             <img src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-jumbo-v4.jpg?quality=90&auto=webp" alt="twitter logo">
-            <h1>Registrate en Twitter</h1>
+            <h1>Registrate en El chisme</h1>
         </header>
 
         <form method="post">
             {% csrf_token %}
             <div class="input-wrapper">
-                <label for="user-name-id">First Name</label>
+                <label for="user-name-id">Nombre</label>
                 {{ form.first_name }}
             </div>
             <div class="input-wrapper">
-                <label for="user-name-id">Username</label>
+                <label for="user-name-id">Apodo</label>
                 {{ form.username }}
             </div>
             <div class="input-wrapper">
@@ -24,11 +24,11 @@
             </div>
 
             <div class="input-wrapper">
-                <label for="password-id">Password</label>
+                <label for="password-id">Contraseña</label>
                 {{ form.password1 }}
             </div>
             <div class="input-wrapper">
-                <label for="password-id">Confirm Password</label>
+                <label for="password-id">Confirmar contraseña</label>
                 {{ form.password2 }}
             </div>
 
@@ -36,7 +36,7 @@
         </form>
 
         <div class="footer">
-            <a href="#">¿Ya tienes una cuenta? Login</a>
+            <a href={% url 'login' %}>¿Ya tienes una cuenta? Login</a>
         </div>
 
     </div>
