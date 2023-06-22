@@ -28,7 +28,7 @@ def home(request):
 	context = {'posts':posts, 'form' : form }
 	return render(request, 'twitter/newsfeed.html', context)
 
-@login_required
+
 def extract_hashtags(content):
 	hashtags = re.findall(r'#(\w+)', content)
 	return hashtags
@@ -76,28 +76,28 @@ def editar(request):
 	context = {'u_form' : u_form, 'p_form' : p_form}
 	return render(request, 'twitter/editar.html', context)
 
-@login_required
+
 def follow(request, username):
 	current_profile = request.user.profile
 	to_profile = User.objects.get(username=username).profile
 	current_profile.following.add(to_profile)
 	return redirect('home')
 
-@login_required
+
 def unfollow(request, username):
 	current_profile = request.user.profile
 	to_profile = User.objects.get(username=username).profile
 	current_profile.following.remove(to_profile)
 	return redirect('home')
 
-@login_required
+
 def hashtags_en_posts(request, hashtag_id):
 	hashtag = Hashtag.objects.get(id=hashtag_id)
 	posts = Post.objects.filter(hashtags = hashtag).order_by('-fecha_publicacion')
 	context = {'hashtags': hashtags, 'posts': posts}
 	return render(request, 'twitter/hashtag_en_posts.html', context)
 
-@login_required
+
 def post_like(request, post_id):
 	post = get_object_or_404(Post, id=request.POST.get('post_id'))
 	if post.likes.filter(id=request.user.id).exists():
